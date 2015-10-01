@@ -1,0 +1,11 @@
+---
+layout: post
+title: Screenshot of eRisemail Webmail Component
+---
+h3. Webmail
+!/screenshot/erisemailpre1.png!
+
+!/screenshot/erisemailpre2.png!
+
+h3. Webadmin
+!/screenshot/erisemailpre3.png!
