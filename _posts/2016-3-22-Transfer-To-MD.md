@@ -1,5 +1,6 @@
 ---
-title: MD Transfer
+layout: post
+title: Markdown Transfer
 ---
 
 Hello World!
