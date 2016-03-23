@@ -3,6 +3,7 @@ layout: post
 title: My xterm Theme
 ---
 
+<pre><code>
 bc.. XTerm*locale: true
 XTerm*utf8Title: true
 XTerm*fontMenu*fontdefault*Label: Default
@@ -28,3 +29,4 @@ Shift <KeyPress> Insert:insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
 ~Shift~Ctrl<Btn2Up>: insert-selection(PRIMARY, CUT_BUFFER0) \n\
 ~Shift<BtnUp>: select-end(CLIPBOARD, CUT_BUFFER1) \n\
 ~Shift<BtnUp>: select-end(PRIMARY, CUT_BUFFER0)
+</code></pre>
