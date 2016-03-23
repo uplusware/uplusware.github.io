@@ -3,6 +3,8 @@ layout: post
 title: Markdown Transfer
 ---
 
-Hello World
+# Markdown Transfer
 
-Move .textile to .md
+## Move .textile to .md
+
+### Hello Markdown!
