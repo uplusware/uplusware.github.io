@@ -7,4 +7,4 @@ title: Screenshot of UplusFtp UI
 ![Screenshot of UplusFtp UI](/screenshot/uplusftppre1.png)
 
 # Web UI
-![Screenshot of UplusFtp UI](screenshot/uplusftppre2.png)
+![Screenshot of UplusFtp UI](/screenshot/uplusftppre2.png)
