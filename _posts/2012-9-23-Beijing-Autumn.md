@@ -2,7 +2,8 @@
 layout: post
 title: Beijing Autumn
 ---
-!/photos/IMG_2045.JPG!
+
+![1](/photos/IMG_2045.JPG)
 
 !/photos/IMG_2047.JPG!
 
