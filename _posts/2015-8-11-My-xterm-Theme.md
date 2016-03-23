@@ -2,6 +2,7 @@
 layout: post
 title: My xterm Theme
 ---
+
 bc.. XTerm*locale: true
 XTerm*utf8Title: true
 XTerm*fontMenu*fontdefault*Label: Default
