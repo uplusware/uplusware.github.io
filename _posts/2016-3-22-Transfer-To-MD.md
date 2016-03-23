@@ -3,4 +3,6 @@ layout: post
 title: Markdown Transfer
 ---
 
-= Hello World!
+= Hello World
+
+Move .textile to .md
