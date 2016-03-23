@@ -1,9 +1,0 @@
----
-layout: post
-title: Screenshot of UplusFtp UI
----
-h3. UI Console
-!/screenshot/uplusftppre1.png!
-
-h3. Web UI
-!/screenshot/uplusftppre2.png!
