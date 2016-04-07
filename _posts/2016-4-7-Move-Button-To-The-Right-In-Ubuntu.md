@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Move the inimize maximize close button to the right in Ubuntu
