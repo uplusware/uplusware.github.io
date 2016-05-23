@@ -3,8 +3,7 @@ layout: post
 title: Example for webpy on Spawn-fcgi
 ---
 ### Webpy Code
-<pre><code>
-import web
+```import web
 urls = ("/.*", "hello")
 app = web.application(urls, globals())
 
@@ -14,8 +13,7 @@ class hello:
 
 web.wsgi.runwsgi = lambda func, addr=None: web.wsgi.runfcgi(func, addr)
 if __name__ == "__main__":
-    app.run()
-</code></pre>
+    app.run()```
     
 
 ### Start
