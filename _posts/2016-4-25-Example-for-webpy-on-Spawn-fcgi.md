@@ -17,7 +17,7 @@ title: Example for webpy on Spawn-fcgi
     
 
 ### Start
-<code>sudo spawn-fcgi -d /var/niuhttpd/webpy -f /var/niuhttpd/webpy/main.py -a 127.0.0.1 -p 9001</code>
+	sudo spawn-fcgi -d /var/niuhttpd/webpy -f /var/niuhttpd/webpy/main.py -a 127.0.0.1 -p 9001
 
 ### Stop
-<code>sudo kill `pgrep -f "python /var/niuhttpd/webpy/main.py"`</code>
+	sudo kill `pgrep -f "python /var/niuhttpd/webpy/main.py"`
