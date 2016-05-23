@@ -1,8 +1,0 @@
-- name: github
-  url: https://github.com
-
-- name: Google Code
-  url: https://code.google.com/
-
-- name: SourceForge
-  url: https://sourceforge.net/
