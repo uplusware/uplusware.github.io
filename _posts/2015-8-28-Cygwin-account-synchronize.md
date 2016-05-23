@@ -2,8 +2,8 @@
 layout: post
 title: Cygwin account synchronize
 ---
-mkpasswd -l -g > /etc/passwd
+	mkpasswd -l -g > /etc/passwd
 
-mkpasswd -d -u \`whoami\` >> /etc/passwd
+	mkpasswd -d -u \`whoami\` >> /etc/passwd
 
-mkgroup  -l -u > /etc/group
+	mkgroup  -l -u > /etc/group

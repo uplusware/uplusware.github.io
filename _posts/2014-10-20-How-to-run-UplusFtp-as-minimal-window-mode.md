@@ -5,8 +5,7 @@ title: How to run UplusFtp as minimal window mode
 
 Copy the VBScript code to a vbs file and save it into the UplusFtp directory as naming ftprun.vbs , and run it.
 
-<pre><code>
-Set WshShell = WScript.CreateObject("WScript.Shell")
-FTP = CreateObject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
-WshShell.Run FTP&"\ftpadmingui.exe", 0
-</code></pre>
+	Set WshShell = WScript.CreateObject("WScript.Shell")
+	FTP = CreateObject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
+	WshShell.Run FTP&"\ftpadmingui.exe", 0
+
