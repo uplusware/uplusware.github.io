@@ -1,6 +1,6 @@
 # Site variables
 name: Uplusware
-description: Uplusware.com
+email: uplusware@gmail.com
 
 # Markdown
 markdown: kramdown
