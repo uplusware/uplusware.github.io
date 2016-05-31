@@ -222,8 +222,8 @@ hr {
 }
 
 table {
-  border: 1px solid #373737;
-  margin-bottom: 20px;
+  border: 0px solid #373737;
+  margin-bottom: 2px;
   text-align: left;
  }
 
@@ -235,8 +235,8 @@ th {
  }
 
 td {
-  padding: 10px;
-  border: 1px solid #373737;
+  padding: 1px;
+  border: 0px solid #373737;
  }
 
 form {
