@@ -1,0 +1,274 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>How to use Anti-junk Engine in eRisemail</title>
+<style type="text/css">
+<!--
+body {
+	font-family: "Times New Roman", "Times", "serif";
+	font-size: 16px;
+}
+a:link {
+	font-style: normal;
+	color: #FF0000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #0000FF;
+	font-style: normal;
+	font-weight: bold;
+}
+a:visited {
+	color: #FF0000;
+}
+a:active {
+	color: #0000FF;
+}
+table {
+	font-size: 16px;
+	border: none;
+}
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 24px;
+}
+h3 {
+	font-size: 18px;
+}
+td {
+	border: 1px solid #999999;
+}
+.STYLE1 {
+	color: #0000FF;
+	font-weight: bold;
+}
+.STYLE2 {color: #FF0000}
+.STYLE3 {color: #0000FF}
+.STYLE4 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.STYLE5 {color: #666666}
+-->
+</style>
+</head>
+
+<body>
+<h1>How to use Anti-<span class="STYLE2"><strike>junk</strike></span> Engine in eRisemail </h1>
+<hr align="left" width="800" />
+<h2>Brief:</h2>
+<ul>
+  <li>eRisemail system offers a feature with which user can extend or append the <strong>Anti-<span class="STYLE2"><strike>junk</strike></span></strong> engines.</li>
+  <li>Engine is based on C or C++, as the dynamic librarys, a <strong>.so</strong> file, on Linux.</li>
+</ul>
+<h2>How to use:</h2>
+<ol>
+  <li> Implement the features which you desire based on the framework codes. .</li>
+  <li>Compile to generate the engine - a <strong>.so</strong> file .</li>
+  <li>For   the security   consideration, please stop the eRisemail service.</li>
+  <li>Append a record of engine to <strong>eRisemail  Filter</strong> List, <strong>/etc/erisemail/mfilter.xml</strong>.</li>
+  <li>Start the eRisemail service </li>
+</ol>
+<h2>Description of   Filter List - <span class="STYLE1">/etc/erisemail/mfilter.xml</span>:</h2>
+<ul>
+  <li>This XML file storages all <strong>eRisemail Filter</strong> engines</li>
+  <li> All the engines that are listed will be invoked in any new MTA session (SMTP session) . </li>
+  <li> The invoked order follows the order listed in the XML file. </li>
+  <li> <strong>libso</strong> refers to the path of the engine. </li>
+  <li><strong>action</strong> means how to handle the junkmail:
+    <ul>
+        <li><strong>TAG</strong> will only toggle this mail as a junk, but still recieves and storages the mail. </li>
+      <li><strong>DROP</strong>   will discard junk mail directly . </li>
+    </ul>
+  </li>
+</ul>
+<h2>Interface of <span class="STYLE3"><strong>Development Framework</strong></span>:</h2>
+<ul>
+  <li><span class="STYLE3">void</span>* <span class="STYLE4">mfilter_init</span>();
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Initiate the mfilter, invoked by MTA in a new session beginning</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li>Return a filter's handler</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_emaildomain</span>(<span class="STYLE3">void</span>* filter, <span class="STYLE3">const char</span>* domain, <span class="STYLE3">unsigned int</span> len);
+    <ul>
+      <li class="STYLE5">Brief:
+        <ul>
+          <li>Get the local email domain name</li>
+        </ul>
+      </li>
+      <li class="STYLE5">Parameter:
+        <ul>
+          <li>The handler of the exist filter </li>
+        </ul>
+      </li>
+      <li><span class="STYLE5">Return:
+        </span>
+        <ul>
+          <li class="STYLE5">None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_clientip</span>(<span class="STYLE3">void</span>* filter, <span class="STYLE3">const char</span>* ip, <span class="STYLE3">unsigned int</span> len);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Get the client site's IP in a MTA session</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+          <li>A pointer of the buffer which storage the ip</li>
+          <li>The length of buffer</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_clientdomain</span>(<span class="STYLE3">void</span> * filter, <span class="STYLE3">const char</span>* domain, <span class="STYLE3">unsigned int</span> len);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Get the client site's domai nname in a MTA session</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+          <li>A pointer of the buffer which storage the domain name</li>
+          <li>The length of buffer</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li> None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_mailfrom</span>(<span class="STYLE3">void</span> * filter, <span class="STYLE3">const char</span>* from, <span class="STYLE3">unsigned int</span> len);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li> Get the address of &quot;MAIL FROM&quot;</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+          <li>A pointer of the buffer which storage the address of &quot;MAIL FROM&quot;</li>
+          <li>The length of buffer</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_rcptto</span>(<span class="STYLE3">void</span> * filter, <span class="STYLE3">const char</span>* to, <span class="STYLE3">unsigned int</span> len);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Get the address of &quot;RCPT TO&quot;</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+          <li>A pointer of the buffer which storage the address of &quot;RCPT TO&quot;</li>
+          <li>The length of buffer</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_data</span>(<span class="STYLE3">void</span> * filter, <span class="STYLE3">const char</span>* from, <span class="STYLE3">unsigned int</span> len);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Get each line of mail body</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li> The handler of the exist filter</li>
+          <li>A pointer of the buffer which storage the mail body</li>
+          <li>The length of buffer</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li> None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_result</span>(<span class="STYLE3">void</span> * filter, <span class="STYLE3">int</span>* isjunk);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Get the result of filter</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+          <li>The flag whether the mail is a junk mail. -1 is a general mail, other value is junk mail</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> <span class="STYLE3">void</span> <span class="STYLE4">mfilter_exit</span>(<span class="STYLE3">void</span> * filter);
+    <ul class="STYLE5">
+      <li><strong>Brief</strong>:
+        <ul>
+          <li>Destory the filter</li>
+        </ul>
+      </li>
+      <li><strong>Parameter</strong>:
+        <ul>
+          <li>The handler of the exist filter</li>
+        </ul>
+      </li>
+      <li><strong>Return</strong>:
+        <ul>
+          <li> None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>
