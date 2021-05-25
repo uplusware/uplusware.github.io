@@ -46,9 +46,9 @@ Theme Styles
 body {
   box-sizing: border-box;
   color:#373737;
-  background: #FFFFFF;
+  background: #b1e1f8;
   font-size: 16px;
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: system-ui,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
   color:#222222;
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: system-ui,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   letter-spacing: -1px;
 }
 
@@ -247,7 +247,6 @@ form {
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
-
 .outer {
   width: 100%;
 }
@@ -257,6 +256,9 @@ Full-Width Styles
   max-width: 1000px;
   padding: 20px 10px;
   margin: 0 auto;
+  box-shadow: 0 0 .5em 0 #737660;
+  border-top: .1em solid #f29700;
+  background: #ffffff;
 }
 
 #forkme_banner {
@@ -343,7 +345,7 @@ Full-Width Styles
 }
 
 #main_content_wrap {
-  background: #FFFFFF;
+  background: #b1e1f8;
 }
 
 #main_content {
@@ -408,4 +410,8 @@ Small Device Styles
     font-size: 11px;
   }
 
+}
+
+.thanks {
+	font-size: 8px;
 }
