@@ -257,8 +257,8 @@ Full-Width Styles
   padding: 20px 10px;
   margin: 0 auto;
   box-shadow: 0 0 .5em 0 #737660;
-  border-top: .2em solid #f29700;
-  border-radius:5px;
+  border-top: .1em solid #f29700;
+  border-radius:2px;
   background: #ffffff;
 }
 
